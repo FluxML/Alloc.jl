@@ -1,0 +1,6 @@
+name = "StaticAlloc"
+uuid = "85ae397a-964c-11e8-069c-37c7cfb7e129"
+authors = ["Mike J Innes <mike.j.innes@gmail.com>"]
+version = "0.1.0"
+
+[deps]

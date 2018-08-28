@@ -1,6 +1,8 @@
-name = "StaticAlloc"
+name = "Alloc"
 uuid = "85ae397a-964c-11e8-069c-37c7cfb7e129"
 authors = ["Mike J Innes <mike.j.innes@gmail.com>"]
 version = "0.1.0"
 
 [deps]
+Cassette = "7057c7e9-c182-5462-911a-8362d720325c"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

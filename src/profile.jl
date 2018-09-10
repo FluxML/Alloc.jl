@@ -1,3 +1,6 @@
+using Cassette
+using Cassette: @context, overdub
+
 @context ProfileCtx
 
 Cassette.prehook(cx::ProfileCtx,

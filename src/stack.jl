@@ -20,13 +20,7 @@ function clear!(b::Buffer)
   return b
 end
 
-@context AllocCtx
-
-execute(cx::AllocCtx,
-    ::Type{Array{T,N}}, ::UndefInitializer, d::Vararg{Int,N}) where {T,N} =
-  alloc(cx.metadata, Array{T,N}, d)
-
 function run(f, b::Buffer)
   clear!(b)
-  overdub(AllocCtx(metadata = b), f)
+  return b(f)
 end

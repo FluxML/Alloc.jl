@@ -6,4 +6,5 @@ version = "0.1.0"
 [deps]
 Cassette = "7057c7e9-c182-5462-911a-8362d720325c"
 IRTools = "71c1cb0c-a83f-11e8-19ce-a5dd18e12d22"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

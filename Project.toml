@@ -1,10 +1,19 @@
 name = "Alloc"
 uuid = "85ae397a-964c-11e8-069c-37c7cfb7e129"
-authors = ["Mike J Innes <mike.j.innes@gmail.com>"]
+authors = ["Roger-luo <rogerluo.rl18@gmail.com>", "Mike J Innes <mike.j.innes@gmail.com>"]
 version = "0.1.0"
 
 [deps]
 Cassette = "7057c7e9-c182-5462-911a-8362d720325c"
-IRTools = "71c1cb0c-a83f-11e8-19ce-a5dd18e12d22"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]

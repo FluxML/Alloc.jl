@@ -1,4 +1,6 @@
 export mprofile
+using Cassette
+using Cassette: @context, overdub
 @context ProfileCtx
 
 function Cassette.prehook(cx::ProfileCtx, ::Type{Array{T, N}}, ::UndefInitializer, d::Vararg{Int, N}) where {T, N}

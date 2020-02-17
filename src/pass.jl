@@ -1,25 +1,12 @@
 using IRTools
-using IRTools: IR, Argument, isexpr
+using IRTools: IR, isexpr, @dynamo
 using LinearAlgebra
 
-function pass(ir)
-  for (x, st) in ir
-    (isexpr(st.expr, :call) && !IRTools.isprimitive(ir, st.expr.args[1])) || continue
-    ir[x] = Expr(:call, Argument(1), st.expr.args...)
-  end
+@dynamo function (b::Buffer)(args...)
+  ir = IR(args...)
+  ir == nothing && return
+  recurse!(ir)
   return ir
-end
-
-@generated function (b::Buffer)(f, args...)
-  m = IRTools.meta(Tuple{f,args...})
-  m == nothing && return :(f(args...))
-  # Core.println((f, args...))
-  ir = IR(m)
-  ir = IRTools.spliceargs!(m, ir, (Symbol("#buf#"),Any))
-  ir = pass(ir)
-  ir = IRTools.varargs!(m, ir, 2)
-  IRTools.argnames!(m, Symbol("#buf#"), :f, :args)
-  return IRTools.update!(m, ir)
 end
 
 (buf::Buffer)(::Type{Array{T,N}}, ::UndefInitializer, d::Vararg{Int,N}) where {T,N} =
